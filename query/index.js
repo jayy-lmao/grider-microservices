@@ -53,7 +53,7 @@ app.listen(4002, async() => {
   console.log("Listening on 4002");
 
   // Get all events that have occured over time
-  const res = await axios.get('http://localhost:4005/events');
+  const res = await axios.get('http://events-clusterip-srv:4005/events');
   for (let event of res.data) {
     console.log('Processing event: ', event.type);
     handleEvent(event.type, event.data);

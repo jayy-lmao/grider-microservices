@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: comments-depl
+  name: query-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: comments
+      app: query
   template:
     metadata:
       labels:
-        app: comments
+        app: query
     spec:
       containers:
-      - name: comments
-        image: jayylmao/comments
+      - name: query
+        image: jayylmao/query
         resources:
           limits:
             memory: "128Mi"
@@ -25,12 +25,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: comments-clusterip-srv
+  name: query-clusterip-srv
 spec:
   selector:
-    app: comments
+    app: query
   ports:
-    - name: comments
+    - name: query
       protocol: TCP
-      port: 4001
-      targetPort: 4001
+      port: 4002
+      targetPort: 4002
