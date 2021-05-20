@@ -49,9 +49,18 @@ app.post("/events", (req, res) => {
   res.send({});
 });
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+
+
 app.listen(4002, async() => {
   console.log("Listening on 4002");
-
   // Get all events that have occured over time
   // const res = await axios.get('http://event-bus-srv:4005/events');
   // for (let event of res.data) {
