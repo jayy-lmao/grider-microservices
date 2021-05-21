@@ -49,15 +49,6 @@ app.post("/events", (req, res) => {
   res.send({});
 });
 
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
-
-
 
 app.listen(4002, async() => {
   console.log("Listening on 4002");

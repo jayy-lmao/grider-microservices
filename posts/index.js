@@ -10,7 +10,12 @@ app.use(cors());
 
 const posts = {};
 
-app.get("/posts", (_req, res) => {
+app.get("/posts/:id/comments", (req, res) => {
+  res.send("You came to the wrong comments section");
+});
+
+
+app.get("/posts", (req, res) => {
   res.send(posts);
 });
 
@@ -35,9 +40,8 @@ app.post("/posts", async (req, res) => {
 });
 
 app.post("/events", (req, res) => {
-  console.group("Received event");
-  console.log(req.body);
-  console.groupEnd();
+  console.log("Received Event", req.body.type);
+
   res.send({});
 });
 

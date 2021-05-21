@@ -13,14 +13,8 @@ spec:
         app: posts
     spec:
       containers:
-      - name: posts
-        image: jayylmao/posts
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 4000
+        - name: posts
+          image: jayy-lmao/posts
 ---
 apiVersion: v1
 kind: Service
