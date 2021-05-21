@@ -8,13 +8,22 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: posts-clusterip-srv
+      name: client-clusterip-srv
       port:
-        number: 4000
+        number: 3000
   rules:
     - http:
         paths:
           - path: /posts
+            pathType: Prefix
+            backend:
+              service:
+                name: query-clusterip-srv
+                port:
+                  number: 4002
+    - http:
+        paths:
+          - path: /posts/create
             pathType: Prefix
             backend:
               service:

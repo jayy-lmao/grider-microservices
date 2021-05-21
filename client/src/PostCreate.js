@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 export default () => {
@@ -7,7 +7,7 @@ export default () => {
   const onSubmit = async event => {
     event.preventDefault();
 
-    await axios.post('http://localhost:4000/posts', {
+    await axios.post('http://posts.com/posts/create', {
       title
     });
 

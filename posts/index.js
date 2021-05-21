@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { randomBytes } = require("crypto");
+const {randomBytes} = require("crypto");
 const cors = require("cors");
 const axios = require("axios");
 
@@ -10,18 +10,19 @@ app.use(cors());
 
 const posts = {};
 
+/*
 app.get("/posts/:id/comments", (req, res) => {
   res.send("You came to the wrong comments section");
 });
 
-
 app.get("/posts", (req, res) => {
   res.send(posts);
 });
+*/
 
-app.post("/posts", async (req, res) => {
+app.post("/posts/create", async (req, res) => {
   const id = randomBytes(4).toString("hex");
-  const { title } = req.body;
+  const {title} = req.body;
 
   posts[id] = {
     id,
