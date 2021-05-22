@@ -2,7 +2,7 @@ apiVersion: skaffold/v2alpha3
 kind: Config
 deploy:
   kubectl:
-    mainfests:
+    manifests:
       - ./infrastructure/k8s/*
 build:
   local:
@@ -11,7 +11,15 @@ build:
     - image: jayylmao/client
       context: client
       docker:
-        dockerfile: Dockerfile
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
+    - image: jayylmao/query
+      context: query
+      docker:
+        dockerfile: dockerfile
       sync:
         manual:
           - src: 'src/**/*.js'
@@ -45,14 +53,6 @@ build:
             dest: .
     - image: jayylmao/event-bus
       context: event-bus
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '*.js'
-            dest: .
-    - image: jayylmao/moderation
-      context: moderation
       docker:
         dockerfile: Dockerfile
       sync:
