@@ -16,29 +16,32 @@ build:
         manual:
           - src: 'src/**/*.js'
             dest: .
+
     - image: jayylmao/comments
       context: comments
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: '*.js'
             dest: .
+
     - image: jayylmao/posts
       context: posts
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: '*.js'
             dest: .
+
     - image: jayylmao/moderation
       context: moderation
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: '*.js'
             dest: .
     - image: jayylmao/event-bus
       context: event-bus
@@ -46,7 +49,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
+          - src: '*.js'
             dest: .
     - image: jayylmao/moderation
       context: moderation
@@ -54,13 +57,5 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'src/**/*.js'
-            dest: .
-    - image: jayylmao/query
-      context: query
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: 'src/**/*.js'
+          - src: '*.js'
             dest: .
